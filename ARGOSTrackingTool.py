@@ -9,6 +9,9 @@
 # Date:   Fall 2024
 #--------------------------------------------------------------
 
+#Ask user for a date
+user_date = input("enter a date: ")
+
 #Create a variable pointing to the data file
 file_name = 'V:\Turtle_Tracking_Project\Data\Raw\sara.txt'
 
@@ -50,3 +53,18 @@ for lineString in line_list:
 
     #Print the location of sara
     #print(f"Record {record_id} indicates Sara was seen at lat:{obs_lat}, lon:{obs_lon} on {obs_date}")
+
+#Initialize keys list
+keys = []   
+
+#Loop through items in date_dict
+for key, value in date_dict.items():
+    if value == user_date:
+        keys.append(key)
+
+#Loop through keys and report location
+for key in keys: 
+    location = location_dict[key]
+    lat = location[0]
+    long = location[1]
+    print(f"On {user_date}, Sara the turtle was seen at {lat}d latitude, {long}d longitude")
